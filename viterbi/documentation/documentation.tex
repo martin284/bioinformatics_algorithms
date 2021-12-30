@@ -1,0 +1,35 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{epsfig}
+\renewcommand{\baselinestretch}{1.0}
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% PDF hyperlinks, e.g. click-able references like TOC lines and 'see table x on page y'
+\usepackage{hyperref}
+\hypersetup{colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black,
+    plainpages=false}
+
+
+\begin{document}
+
+\title{Ausarbeitung zur Implementierungsaufgabe 3 -- AMBI 2021}
+\author
+{Magdalena Weber und Martin Brand}
+\date{\today}
+\maketitle
+
+\section*{Zu Aufgabe 3}
+Die Parameter für den Viterbi-Algorithmus wurden beim 2. Durchlauf so geändert, dass in der stochastischen Matrix die ersten 4 Zeilen nun den letzten 4 Zeilen entsprechen und umgekehrt. Man sieht, dass die Fehlerrate signifikant schlechter ist, wenn man den falschen Viterbi-Algorithmus benutzt.
+
+
+\end{document}

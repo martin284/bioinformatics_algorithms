@@ -1,0 +1,62 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{epsfig}
+\renewcommand{\baselinestretch}{1.0}
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% PDF hyperlinks, e.g. click-able references like TOC lines and 'see table x on page y'
+\usepackage{hyperref}
+\hypersetup{colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black,
+    plainpages=false}
+
+
+\begin{document}
+
+\title{Ausarbeitung zur Implementierungsaufgabe 1 -- AMBI 2021}
+\author
+{Magdalena Weber und Martin Brand}
+\date{\today}
+\maketitle
+
+
+\section*{Zu Aufgabe 2.1}
+\label{section:aufgabe1}
+Laufzeiten zu Berechnung der Distanz-Matrizen mittels der Hamming-Distanz und der Levenshtein-Distanz für die tRNA-Sequenzen von \textit{Aquifer aeolicus}:
+
+\begin{itemize}
+    \item Hamming: 16.9548ms
+    \item Levenshtein: 29.4084s
+\end{itemize}
+Beachte: Da die Hamming-Distanz für Sequenzen unterschiedlicher Länge nicht definiert ist, wird sie über die minimale Länge beider Sequenzen berechnet (wenn die Längen 10 und 11 sind, wird die Hamming-Distanz über die ersten 10 Symbole berechnet).
+
+
+\section*{Zu Aufgabe 2.2}
+\label{section:aufgabe2}
+Laufzeiten der hierarchischen agglomerativen Cluster-Algorithmen mit den zwei verschiedenen Distanz-Metriken für die tRNA-Sequenzen von \textit{Aquifer aeolicus}: \newline 
+\newline
+\begin{tabular}{c|c|c}
+     &  UPGMA & Neighbor-Joining \\
+    \hline
+    Hamming & 14.9428ms & 41.9304ms \\
+    Levenshtein & 14.0020ms & 46.8754ms
+\end{tabular}
+\newline \newline
+Beachte: Die angegebenen Laufzeiten beziehen die Berechnung der Distanz-Matrizen nicht ein, weil sonst die Unterschiede kaum noch deutlich würden. Für die gesamte Laufzeit addiert man einfach die Laufzeit hier mit dem Wert für die jeweilige Distanz (Hamming oder Levenshtein) aus Aufgabe 2.1. 
+
+\section*{Zu Aufgabe 2.3}
+Man sieht natürlich direkt, dass der Neighbor-Joining-Algorithmus mehr als doppelt so viel Laufzeit benötigt. Dieser Punkt spricht für den UPGMA-Algorithmus. 
+\newline
+Der Nachteil ist aber, dass er nach dem Prinzip der \textit{molecular clock hypothesis} funktioniert. Das bedeutet, man geht davon aus, dass evolutionäre Verzweigungen in immer gleichen zeitlichen Abständen kommen. In der Realität trifft das jedoch nicht zu. Evolution geschieht ungleichmäßig und nicht mit einer konstanten Rate. Also berechnet der Neighbor-Joining-Algorithmus den wahrscheinlicheren Baum.
+
+
+\end{document}
